@@ -1,6 +1,8 @@
 package com.icode.web.action;
 
+import com.icode.web.dto.Message;
 import com.opensymphony.xwork2.Action;
+import com.opensymphony.xwork2.ActionContext;
 
 /**
  * Created with IntelliJ IDEA.
@@ -9,14 +11,29 @@ import com.opensymphony.xwork2.Action;
  * Time: 下午5:03
  */
 public class HelloWorldAction {
-    private String message;
+    private Message message;
 
     public String execute() {
-        message = "Hello World! This is my first web application based on struts2";
         return Action.SUCCESS;
     }
 
-    public String getMessage() {
+    public String source() {
+        return "source";
+    }
+
+    public String scope() {
+        ActionContext context = ActionContext.getContext();
+        context.getApplication().put("name", "Application-ZhongGang");
+        context.getSession().put("name", "Session-ZhongZhong");
+        context.put("name", "Request-GangGang");
+        return "scope";
+    }
+
+    public Message getMessage() {
         return message;
+    }
+
+    public void setMessage(Message message) {
+        this.message = message;
     }
 }

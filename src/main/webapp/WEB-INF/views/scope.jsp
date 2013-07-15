@@ -8,15 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Hello World</title>
+    <title>Scope</title>
 </head>
 <body>
-<h1>
-    ${message.content}
-</h1>
+<h1>${applicationScope.name}</h1>
 
-<h2>
-    ${message.createDate}
-</h2>
+<h1>${sessionScope.name}</h1>
+
+<h1>${requestScope.name}</h1>
 </body>
 </html>

@@ -6,9 +6,47 @@
 
 <struts>
 
+    <constant name="struts.action.extension" value="do,action,html"/>
+    <constant name="struts.serve.static.browserCache" value="false"/>
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
+    <constant name="struts.devMode" value="true"/>
+    <constant name="struts.ui.theme" value="simple"/>
+    <constant name="struts.custom.i18n.resources" value="icode"/>
+
+    <!-- 可以以多个模块划分配置文件，以避免struts.xml文件的臃肿 -->
+    <include file="struts-user.xml"/>
+    <include file="struts-login.xml"/>
+    <include file="struts-registration.xml"/>
+
     <package name="hello" namespace="/hello" extends="struts-default">
+        <global-results>
+            <result name="404">/WEB-INF/views/404.jsp</result>
+        </global-results>
+
+        <!--<interceptors>-->
+        <!--<interceptor name="characterEncodingInterceptor"-->
+        <!--class="com.icode.web.interceptor.CharacterEncodingInterceptor"/>-->
+        <!--<interceptor-stack name="characterEncodingStack">-->
+        <!--<interceptor-ref name="defaultStack"/>-->
+        <!--<interceptor-ref name="characterEncodingInterceptor"/>-->
+        <!--</interceptor-stack>-->
+        <!--</interceptors>-->
+
         <action name="helloworld" class="com.icode.web.action.HelloWorldAction" method="execute">
             <result name="success">/WEB-INF/views/helloWorld.jsp</result>
+            <result name="source" type="plainText">
+                <param name="location">/WEB-INF/views/helloWorld.jsp</param>
+                <param name="charSet">UTF-8</param>
+            </result>
+            <result name="scope">/WEB-INF/views/scope.jsp</result>
+            <!--<interceptor-ref name="characterEncodingStack"/>-->
+        </action>
+    </package>
+
+    <package name="upload" namespace="/upload" extends="struts-default">
+        <action name="avatar" class="com.icode.web.action.AvatarAction" method="execute">
+            <result name="success">/WEB-INF/views/fileUpload.jsp</result>
+            <result name="input">/WEB-INF/views/fileUpload.jsp</result>
         </action>
     </package>
 </struts>
