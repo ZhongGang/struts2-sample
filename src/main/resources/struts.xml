@@ -12,6 +12,7 @@
     <constant name="struts.devMode" value="true"/>
     <constant name="struts.ui.theme" value="simple"/>
     <constant name="struts.custom.i18n.resources" value="icode"/>
+    <constant name="struts.objectFactory" value="spring"/>
 
     <!-- 可以以多个模块划分配置文件，以避免struts.xml文件的臃肿 -->
     <include file="struts-user.xml"/>
@@ -47,6 +48,15 @@
         <action name="avatar" class="com.icode.web.action.AvatarAction" method="execute">
             <result name="success">/WEB-INF/views/fileUpload.jsp</result>
             <result name="input">/WEB-INF/views/fileUpload.jsp</result>
+        </action>
+    </package>
+
+    <package name="shop" namespace="/shop/form" extends="struts-default">
+        <action name="show" class="com.icode.web.action.shop.ShopAction" method="show">
+            <result name="show">/WEB-INF/views/shop/shopForm.jsp</result>
+        </action>
+        <action name="persist" class="com.icode.web.action.shop.ShopAction" method="persist">
+            <result name="persist">/WEB-INF/views/shop/shopForm.jsp</result>
         </action>
     </package>
 </struts>
