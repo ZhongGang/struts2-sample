@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>The shop of form</title>
+    <script type="text/javascript" src="/static/bootstrap/js/bootstrap.js"></script>
 </head>
 <body>
 <form action="persist.action" method="post">
