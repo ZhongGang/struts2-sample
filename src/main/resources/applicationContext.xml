@@ -52,4 +52,11 @@
         <aop:pointcut id="service" expression="execution(* com.icode.core.service..*.*(..))"/>
         <aop:advisor advice-ref="txAdvice" pointcut-ref="service"/>
     </aop:config>
+
+    <bean id="traceInterceptor" class="com.icode.core.TraceInterceptor"/>
+
+    <aop:config>
+        <aop:pointcut id="trace" expression="execution(* com.icode.core.service..*.*(..))"/>
+        <aop:advisor advice-ref="traceInterceptor" pointcut-ref="trace"/>
+    </aop:config>
 </beans>
