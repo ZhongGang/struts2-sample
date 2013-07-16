@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>The Form of Shop</title>
+    <script type="text/javascript" src="/static/bootstrap/js/bootstrap.js"></script>
+</head>
+<body>
+<h1>This is a velocity template file</h1>
+
+<form action="persist.action" method="post">
+    <table>
+        <tr>
+            <td>名字：</td>
+            <td>
+                <input type="text" name="shop.name"/>
+            </td>
+        </tr>
+        <tr>
+            <td>描述：</td>
+            <td>
+                <textarea name="shop.description"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="保存"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

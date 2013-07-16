@@ -54,7 +54,7 @@
 
     <package name="shop" namespace="/shop/form" extends="struts-default">
         <action name="show" class="com.icode.web.action.shop.ShopAction" method="show">
-            <result name="show">/WEB-INF/views/shop/shopForm.jsp</result>
+            <result name="show">/WEB-INF/views/shop/shopForm.vm</result>
         </action>
         <action name="persist" class="com.icode.web.action.shop.ShopAction" method="persist">
             <result name="persist">/WEB-INF/views/shop/shopForm.jsp</result>
