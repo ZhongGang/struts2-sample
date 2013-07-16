@@ -11,4 +11,8 @@ public class Speaker {
     public void speak() {
         System.out.println("Hello World!");
     }
+
+    public void forbidSpeak() {
+        throw new UnsupportedOperationException("Not yet implemented!");
+    }
 }
