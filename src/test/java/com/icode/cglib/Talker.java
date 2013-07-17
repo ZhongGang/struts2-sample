@@ -21,5 +21,7 @@ public class Talker {
         enhancer.setCallback(new EnhanceTalker());
         Talker talker = (Talker) enhancer.create();
         talker.talk("this is cglib proxy~");
+
+        System.out.println(talker.getClass());
     }
 }
