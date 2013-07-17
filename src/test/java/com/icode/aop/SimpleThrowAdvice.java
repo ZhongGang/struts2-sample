@@ -29,5 +29,7 @@ public class SimpleThrowAdvice implements ThrowsAdvice {
 //        speaker.forbidSpeak();
 
         proxySpeaker.forbidSpeak();
+
+        System.out.println(proxySpeaker.getClass());
     }
 }

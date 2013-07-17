@@ -11,6 +11,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * User: ZhongGang
  * Date: 13-7-17
  * Time: 上午12:39
+ *
+ * 代理对象的方法 = 增强处理 + 被代理对象的方法
  */
 @Aspect
 public class LoggingAspect {

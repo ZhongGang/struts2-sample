@@ -32,5 +32,7 @@ public class SimpleBeforeAdvice implements MethodBeforeAdvice {
         speaker.speak();
 
         proxySpeaker.speak();
+
+        System.out.println(proxySpeaker.getClass());
     }
 }
