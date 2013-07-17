@@ -15,13 +15,23 @@ public class Talker {
         System.out.println(message);
     }
 
+    public static void say(String words) {
+        System.out.println(words);
+    }
+
+    public final void speak(String words) {
+        System.out.println(words);
+    }
+
     public static void main(String[] args) {
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(Talker.class);
         enhancer.setCallback(new EnhanceTalker());
         Talker talker = (Talker) enhancer.create();
         talker.talk("this is cglib proxy~");
-
+        Talker.say("CGLIB proxy~");
+        talker.say("CGLIB proxy~");
+        talker.speak("Speak: CGLIB proxy~");
         System.out.println(talker.getClass());
     }
 }
