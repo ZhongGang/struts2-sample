@@ -1,8 +1,8 @@
 package com.icode.core.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -17,7 +17,12 @@ public class Shop extends AbstractEntity {
     private String name;
 
     @Column(columnDefinition = "text")
+    @Basic(fetch = FetchType.LAZY)
     private String description;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "shop_id")
+    private List<Product> products = new ArrayList<Product>();
 
     public Shop() {
     }
@@ -25,5 +30,13 @@ public class Shop extends AbstractEntity {
     public Shop(String name, String description) {
         this.name = name;
         this.description = description;
+    }
+
+    public void add(Product product) {
+        this.products.add(product);
+    }
+
+    public List<Product> getProducts() {
+        return products;
     }
 }
