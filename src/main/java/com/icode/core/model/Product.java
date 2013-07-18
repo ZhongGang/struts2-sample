@@ -1,9 +1,6 @@
 package com.icode.core.model;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,13 +9,17 @@ import javax.persistence.Table;
  * Time: 下午9:38
  */
 @Entity
-@Table
+@SecondaryTables({
+        @SecondaryTable(name = "product1"),
+        @SecondaryTable(name = "product2")
+})
 public class Product extends AbstractEntity {
 
+    @Column(table = "product1")
     private String number;
 
     @ManyToOne
-    @JoinColumn(name = "shop_id")
+    @JoinColumn(name = "shop_id", table = "product2")
     private Shop shop;
 
     public Product() {

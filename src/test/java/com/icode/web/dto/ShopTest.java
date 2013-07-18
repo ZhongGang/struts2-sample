@@ -5,6 +5,7 @@ import com.icode.core.model.Shop;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
 import org.testng.annotations.Test;
@@ -22,6 +23,7 @@ public class ShopTest extends AbstractTransactionalTestNGSpringContextTests {
     private SessionFactory sessionFactory;
 
     @Test
+    @Rollback(value = false)
     public void testShop() throws Exception {
         Session session = sessionFactory.openSession();
         for (int i = 1; i < 2; i++) {
