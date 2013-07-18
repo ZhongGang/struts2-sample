@@ -46,6 +46,15 @@ public class ShopTest extends AbstractTransactionalTestNGSpringContextTests {
 
         System.out.println("~~~~~~~~~~~~~" + shop.getClass() + "~~~~~~~~~~");
 //        Assert.assertEquals(shop, shop);
+
+        shop = (Shop) session.byId(Shop.class).load(1);
+
+        shop = (Shop) session.byId(Shop.class).load(1);
+
+        session.refresh(shop);
+
+        System.out.println("~~~~~~~~~~~~~" + shop.getClass() + "~~~~~~~~~~");
+
     }
 
 }
