@@ -33,8 +33,6 @@ dependencies {
     compile 'org.hibernate:hibernate-core:4.1.9.Final'
     compile 'commons-dbcp:commons-dbcp:1.4'
     compile 'commons-pool:commons-pool:1.6'
-    compile 'joda-time:joda-time:2.1'
-    compile 'org.jadira.usertype:usertype.core:3.1.0.CR1'
     compile 'log4j:log4j:1.2.17'
     testCompile 'org.testng:testng:6.8.5'
     testCompile 'org.apache.struts:struts2-testng-plugin:2.3.15'

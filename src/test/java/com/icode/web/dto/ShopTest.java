@@ -2,16 +2,12 @@ package com.icode.web.dto;
 
 import com.icode.core.model.Product;
 import com.icode.core.model.Shop;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.testng.AbstractTransactionalTestNGSpringContextTests;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -29,9 +25,9 @@ public class ShopTest extends AbstractTransactionalTestNGSpringContextTests {
     public void testShop() throws Exception {
         Session session = sessionFactory.openSession();
         for (int i = 1; i < 2; i++) {
-            Shop shop = new Shop();
+            Shop shop = new Shop("Shop" + i, "The description of shop " + i);
             for (int j = 1; j < 4; j++) {
-                Product product = new Product();
+                Product product = new Product("Product" + j + " in shop " + i);
                 shop.add(product);
             }
             session.saveOrUpdate(shop);
@@ -40,9 +36,14 @@ public class ShopTest extends AbstractTransactionalTestNGSpringContextTests {
         session.flush();
         session.clear();
 
-        Query query = session.createQuery("from Shop");
-        List<Shop> shops = query.list();
-        Assert.assertEquals(shops.size(), 99);
+        Shop shop = (Shop) session.byId(Shop.class).getReference(1);
+
+//        session.close();
+//
+//        session = sessionFactory.openSession();
+
+        System.out.println("~~~~~~~~~~~~~" + shop.getClass() + "~~~~~~~~~~");
+//        Assert.assertEquals(shop, shop);
     }
 
 }

@@ -11,6 +11,8 @@ import org.springframework.cglib.proxy.Enhancer;
  */
 public class Talker {
 
+    public static int count = 0;
+
     public void talk(String message) {
         System.out.println(message);
     }

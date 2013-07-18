@@ -21,6 +21,13 @@ public class Product extends AbstractEntity {
     @JoinColumn(name = "shop_id")
     private Shop shop;
 
+    public Product() {
+    }
+
+    public Product(String number) {
+        this.number = number;
+    }
+
     public String getNumber() {
         return number;
     }
